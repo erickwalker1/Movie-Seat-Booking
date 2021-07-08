@@ -13,9 +13,9 @@
       <form class="form" action="">
         <label class="form__label" for="Movie">Select Movie:</label>
         <select name="Movies" id="movie">
-          <option value="A Quiet Place">A Quiet Place Part 2 ~ $13</option>
-          <option value="Forever Purge">The Forever Purge ~ $11</option>
-          <option value="Zola">Zola ~ $10</option>
+          <option id="quietPlace" value="A Quiet Place">A Quiet Place Part 2 ~ $13</option>
+          <option id="foreverPurge" value="Forever Purge">The Forever Purge ~ $11</option>
+          <option id="zola" value="Zola">Zola ~ $10</option>
         </select>
       </form>
     </div>
@@ -97,24 +97,12 @@
     </div>
 
     <div class="selected-seats">
-      <p>Some Temporary Text Will Go Here</p>
+      <p>
+        You have selected <span id="seat-count">0</span> seats for a price of
+        $<span id="seat-price">0</span>
+      </p>
     </div>
 
     <script src="/script.js"></script>
   </body>
 </html>
-
-<!-- 
-    Movie Seat Booking Outline
-   
-    Create dropdown to show a list of movies people can watch
-        form element -> label (Select Movie) -> select -> options
-
-    Display a key (list) for users to see which seats are available and aren't    
-        div -> list -> N/A -> Selected -> Occupied | Selected (if user selected a specific seat) 
-
-    Display a theater setting 
-        Display a theater "screen" -> div -> styles ??
-        Display columns of "seats" -> div??
-
- -->

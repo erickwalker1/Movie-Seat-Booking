@@ -20,8 +20,8 @@ body {
 }
 
 .list-container {
-  width: 80%;
   margin: 2rem auto 0 auto;
+  max-width: 80%;
   background-color: rgb(19, 18, 18);
 }
 
@@ -59,6 +59,7 @@ body {
 .seat {
   width: 0.75rem;
   height: 0.75rem;
+  cursor: pointer;
   display: inline-block;
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
   background-color: gray;
