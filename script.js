@@ -1,14 +1,19 @@
 "use strict";
-
 const seat = document.querySelector(".seat-container");
 const numSeats = document.getElementById("seat-count");
 const seatPrice = document.getElementById("seat-price");
 
 const movie = document.getElementById("movie");
-const option1 = document.getElementById("quietPlace");
-const option2 = document.getElementById("foreverPurge");
-const option3 = document.getElementById("zola");
+const movieOne = document.getElementById("quietPlace");
+const movieTwo = document.getElementById("foreverPurge");
+const movieThree = document.getElementById("zola");
 
+// Listener For Changes In Drop Down Menu
+movie.addEventListener("change", function (event) {
+  seatPrice.innerHTML = event.target.value * numSeats.innerHTML;
+});
+
+// Selects Seats 
 seat.addEventListener("click", function (event) {
   if (
     !event.target.classList.contains("seat-occupied") &&
@@ -21,20 +26,20 @@ seat.addEventListener("click", function (event) {
     event.target.classList.remove("seat-selected");
     numSeats.innerHTML--;
   }
-  validateMovie();
+  checkMovie();
 });
 
-function validateMovie() {
-  if (option1.selected) {
-    seatPrice.innerHTML = 13;
+// Update Prices According To Movie Selected
+function checkMovie() {
+  if (movieOne.selected) {
+    seatPrice.innerHTML = movieOne.value;
     seatPrice.innerHTML *= numSeats.innerHTML;
-  } else if (option2.selected) {
-    seatPrice.innerHTML = 11;
+  } else if (movieTwo.selected) {
+    seatPrice.innerHTML = movieTwo.value;
     seatPrice.innerHTML *= numSeats.innerHTML;
-  } else if (option3.selected) {
-    seatPrice.innerHTML = 10;
-    let newPrice = (seatPrice.innerHTML *= numSeats.innerHTML);
-    seatPrice.innerHTML = newPrice;
+  } else if (movieThree.selected) {
+    seatPrice.innerHTML = movieThree.value;
+    seatPrice.innerHTML *= numSeats.innerHTML;
   } else {
     console.log("Movie Not Selected");
   }
@@ -42,12 +47,11 @@ function validateMovie() {
 
 /* 
 
-* TODOs 
+Task List 
 
- --> Implement a hover state for seats
-
- --> Implement styling to screen container to give off a "theater screen" look
-
+ 
  --> Implement functionality to where if user decides to switch movies, update/reflect the price of the tickets (according to amount of seats selected) according to the movie 
+
+ --> Implement functionality to where selected seats are saved to localStorage 
 
 */
